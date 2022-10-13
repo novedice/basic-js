@@ -12,36 +12,36 @@ const { NotImplementedError } = require('../extensions/index.js');
  * 
  */
 function getSeason(date) {
-  console.log(typeof date, date);
-  console.log('date.constructor.name',date.constructor.name)
-  console.log('Date.prototype.isPrototypeOf(date)',Date.prototype.isPrototypeOf(date))
-  console.log(Object.getOwnPropertyNames(Object.getPrototypeOf(date)));
+  // console.log(typeof date, date);
+  // console.log('date.constructor.name',date.constructor.name)
+  // console.log('Date.prototype.isPrototypeOf(date)',Date.prototype.isPrototypeOf(date))
+  // console.log(Object.getOwnPropertyNames(Object.getPrototypeOf(date)));
   
   
-  function getAllFuncs(toCheck) {
-    const props = [];
-    let obj = toCheck;
-    do {
-        props.push(...Object.getOwnPropertyNames(obj));
-    } while (obj = Object.getPrototypeOf(obj));
-    return props.sort().filter((e, i, arr) => { 
-       if (e!=arr[i+1] && typeof toCheck[e] == 'function') return true;
-    });
-  }
-  console.log(getAllFuncs(date));
+  //function getAllFuncs(toCheck) {
+  //   const props = [];
+  //   let obj = toCheck;
+  //   do {
+  //       props.push(...Object.getOwnPropertyNames(obj));
+  //   } while (obj = Object.getPrototypeOf(obj));
+  //   return props.sort().filter((e, i, arr) => { 
+  //      if (e!=arr[i+1] && typeof toCheck[e] == 'function') return true;
+  //   });
+  // }
+  // console.log(getAllFuncs(date));
 
 
-  const p = [];
-  let obj = date;
-  do {
-    console.log(typeof obj, obj.constructor.name)
-    // p.push(...Object.getOwnPropertyNames(obj))
-  } while (obj = Object.getPrototypeOf(obj))
-  console.log(p);
+  // const p = [];
+  // let obj = date;
+  // do {
+  //   console.log(typeof obj, obj.constructor.name)
+  //   // p.push(...Object.getOwnPropertyNames(obj))
+  // } while (obj = Object.getPrototypeOf(obj))
+  // console.log(p);
   
-  while (obj = Object.getPrototypeOf(obj)) {
-    console.log('check prototype => typeof:',typeof obj, ' name:', obj.constructor.name)
-  }
+  // while (obj = Object.getPrototypeOf(obj)) {
+  //   console.log('check prototype => typeof:',typeof obj, ' name:', obj.constructor.name)
+  // }
 
 
   const isValidDate = (d) => {
@@ -49,7 +49,7 @@ function getSeason(date) {
       d.getDay();
       return d instanceof Date && !isNaN(d);
     } catch (error) {
-      console.error(error);
+      // console.error(error);
       return false;
     }
   };
@@ -77,7 +77,5 @@ module.exports = {
 // console.log(getSeason(() => new Date()))
 
 // console.log(getSeason(null));
-let data1 = new Date(2020, 02, 31);
-console.log(getSeason(data1));
-// console.log (getSeason(new Date('kk')));
-// console.log(getSeason([2019, '27', 0 + '1']));
+// let data1 = new Date(2020, 02, 31);
+// console.log(getSeason(data1));

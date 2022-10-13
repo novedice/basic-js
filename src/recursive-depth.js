@@ -27,9 +27,3 @@ calculateDepth(arr) {
 module.exports = {
   DepthCalculator
 };
-const depthCalc = new DepthCalculator();
- console.log(depthCalc.calculateDepth([1, 2, 3, 4, 5]))
- console.log(depthCalc.calculateDepth([1, 2, 3, [4, 5]]))
- console.log(depthCalc.calculateDepth([[[]]]))
- console.log(depthCalc.calculateDepth([1, 2, 3, 4, [1, 2, [1, 2, [[[]]]]], 5, [1, [[[[[[]]]]]]]]));
- console.log(Array.isArray([[]]));
