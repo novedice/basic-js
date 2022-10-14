@@ -27,17 +27,27 @@ class VigenereCipheringMachine {
     if (message == undefined || key == undefined) { throw new Error('Incorrect arguments!')};
     let arrOfMessageEncrypt = [];
     message = message.toUpperCase();
-    key = key.toUpperCase();  
+    key = key.toUpperCase();
+    let alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' 
     function strToArr (str) {
       let arr = [];
       for (let i=0; i<str.length; i++) {
-        arr.push(str.charCodeAt(i))
+        if (alphabet.includes(str[i])) {
+        arr.push(str.charCodeAt(i));
+        } else {
+          arr.push(str[i]);
+        }
       }
       return arr;
     }
     let arrOfMessage = strToArr(message),
         arrOfKey = strToArr(key);
     console.log(arrOfKey, arrOfMessage);
+    let arrAdd = [];
+    for (let i=65; i<91; i++) {
+      arrAdd.push(i);
+    };
+
     
   }
   decrypt(encryptedMessage, key) {
@@ -48,9 +58,9 @@ class VigenereCipheringMachine {
 module.exports = {
   VigenereCipheringMachine
 };
-// const directMachine = new VigenereCipheringMachine();
-// const reverseMachine = new VigenereCipheringMachine(false);
-// console.log(directMachine.encrypt('attack at dawn!', 'alphonse'))
+const directMachine = new VigenereCipheringMachine();
+const reverseMachine = new VigenereCipheringMachine(false);
+console.log(directMachine.encrypt('attack at dawn!', 'alphonse'))
 // console.log(directMachine.decrypt('AEIHQX SX DLLU!', 'alphonse'))
 // console.log(reverseMachine.encrypt('attack at dawn!', 'alphonse')) 
 // console.log(reverseMachine.decrypt('AEIHQX SX DLLU!', 'alphonse'))
