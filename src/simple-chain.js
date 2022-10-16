@@ -16,8 +16,8 @@ const chainMaker = {
   removeLink(position) {
     if (typeof position != 'number' || position <=0 || position > this.arr.length) {this.arr = []; throw new Error('You can\'t remove incorrect link!')};
     // if (position > this.arr.length) {
-    //   // console.log('trololo',position,this.arr.length)
-    //   throw new Error('You can\'t remove incorrect link!');
+      //   // console.log('trololo',position,this.arr.length)
+      //   throw new Error('You can\'t remove incorrect link!');
     // };
     // if (position <= 0) {throw new Error('You can\'t remove incorrect link!')};
     try {
